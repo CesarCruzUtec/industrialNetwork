@@ -14,6 +14,13 @@ TOPICS = [
     "  Subred -> IP & Broadcast",
     "VLSM",
 ]
+MODBUS = [
+    "RTU",
+    "ASCII",
+    "TCP",
+]
+
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -25,7 +32,7 @@ def absolute_path(relative_path):
 # CALLBACKS
 # ==============================================================================
 def select_topic(sender, app_data, user_data):
-    for i in range(len(TOPICS)):
+    for i in range(len(TOPICS + MODBUS)):
         if sender != f"topic_{i}":
             dpg.set_value(f"topic_{i}", False)
 
@@ -65,7 +72,18 @@ with dpg.value_registry():
 with dpg.window(tag="main"):
     with dpg.group(horizontal=True):
         with dpg.child_window(width=250):
+            dpg.add_text("Subnetting")
+            dpg.bind_item_font(dpg.last_item(), "bold_s")
             for i, label in enumerate(TOPICS):
+                dpg.add_selectable(
+                    label=label,
+                    tag=f"topic_{i}",
+                    callback=select_topic,
+                )
+            dpg.add_separator()
+            dpg.add_text("Modbus")
+            dpg.bind_item_font(dpg.last_item(), "bold_s")
+            for i, label in enumerate(MODBUS, start=len(TOPICS)):
                 dpg.add_selectable(
                     label=label,
                     tag=f"topic_{i}",
@@ -73,7 +91,13 @@ with dpg.window(tag="main"):
                 )
 
         with dpg.child_window(tag="usage"):
-            dpg.add_text("Hola Mundo", tag="text")
+            dpg.add_text("Redes Industriales", tag="title")
+            dpg.add_text("Seleccione un tema para comenzar")
+            dpg.add_spacer()
+            dpg.add_text("Desarrollado por:")
+            dpg.add_text("  - Cesar Adolfo, Cruz Vargaya")
+
+dpg.bind_item_font("title", "bold")
 
 # ==============================================================================
 # THEMES

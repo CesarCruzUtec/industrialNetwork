@@ -25,10 +25,8 @@ def add_ip(ip, n):
     for i in range(3, -1, -1):
         ip[i] += n
         if ip[i] > 255:
-            ip[i] -= 256
-            n = 1
-        else:
-            n = 0
+            ip[i] %= 256
+        n //= 256
 
     return ip
 
@@ -107,6 +105,7 @@ def topic_0(sender, app_data, user_data):
     # Paso 6: Obtener la tabla de subredes
     dpg.add_text("Paso 6: Obtener la tabla de subredes", tag="p6")
 
+    X = X * 256 ** (3 - clase // 8)
     with dpg.table(
         header_row=True,
         delay_search=True,
@@ -543,6 +542,7 @@ def topic_6(sender, app_data, user_data):
             ]
         )
 
+        X = X * 256 ** (3 - clase // 8)
         ip = add_ip(ip, X)
 
     # Paso 6: Mostrar la tabla
