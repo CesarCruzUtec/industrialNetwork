@@ -6,7 +6,7 @@ This is an early version of the Industrial Network project, which is still under
 
 You can download the executable for this version here:
 
-[Download industrialNetwork_v0.exe](https://github.com/CesarCruzUtec/industrialNetwork/releases/download/v0.0.2/industrialNetwork.exe)
+[Download industrialNetwork.exe](https://github.com/CesarCruzUtec/industrialNetwork/releases/download/v0.0.2/industrialNetwork.exe)
 
 ## Dependencies
 
