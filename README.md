@@ -8,6 +8,9 @@ You can download the executable for this version here:
 
 [Download industrialNetwork.exe](https://github.com/CesarCruzUtec/industrialNetwork/releases/download/v0.0.2/industrialNetwork.exe)
 
+This a zip version, since the executable is falsely detected as a virus
+[Download industrialNetwork.zip](https://github.com/CesarCruzUtec/industrialNetwork/releases/download/v0.0.2/industrialNetwork.zip)
+
 ## Dependencies
 
 The project uses the [Fira Code](https://github.com/tonsky/FiraCode) font. You can download it from the official repository.
