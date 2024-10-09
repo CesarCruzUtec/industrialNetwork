@@ -22,11 +22,9 @@ def add_ip(ip, n):
     # IP = [xxx, xxx, xxx, xxx]
     # Add n to the IP address
 
-    for i in range(3, -1, -1):
-        ip[i] += n
-        if ip[i] > 255:
-            ip[i] %= 256
-        n //= 256
+    ip_long = sum([ip[i] * 256 ** (3 - i) for i in range(4)])
+    ip_long += n
+    ip = [ip_long // 256 ** (3 - i) % 256 for i in range(4)]
 
     return ip
 
@@ -560,8 +558,8 @@ def topic_6(sender, app_data, user_data):
         tag="table",
     ):
         dpg.add_table_column(label="N°")
-        dpg.add_table_column(label="Host solicitados")
-        dpg.add_table_column(label="Host disponibles")
+        dpg.add_table_column(label="Host Sol.")
+        dpg.add_table_column(label="Host Dis.")
         dpg.add_table_column(label="Máscara")
         dpg.add_table_column(label="IP Subred")
         dpg.add_table_column(label="Primer Host")
