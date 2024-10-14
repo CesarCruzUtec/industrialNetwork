@@ -2,7 +2,7 @@ import os
 import dearpygui.dearpygui as dpg
 import stages
 
-os.system("cls")
+os.system("cls" if os.name == "nt" else "clear")
 dpg.create_context()
 
 TOPICS = [
